@@ -6,17 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  choice: string = "Home"; 
+  public choice: string = "Home"; 
 
-  title = 'Ministry of Women & Child Development';
+  public title: string = 'Ministry of Women & Child Development';
+
+  public change(value) {
+    this.choice = value;
+    this.changeTitle();
+  }
 
   changeTitle() {
-    if(this.choice = "Home"){
+    if(this.choice == "Home"){
       this.title = 'Ministry of Women & Child Development';
-    }else if(this.choice = "STEP"){
-      this.choice = "Support to Training & Employment Programme for Women";
+    }else if(this.choice == "STEP"){
+      this.title = "Support to Training & Employment Programme for Women";
     } else {
-      this.choice = "Non Governmental Organizations";
+      this.title = "Non Governmental Organizations";
     }
   }
 }

@@ -6,6 +6,7 @@ import { AboutUsComponent } from './Home/about-us/about-us.component';
 import { LandPComponent } from './Home/land-p/land-p.component';
 import { FAQComponent } from './Home/faq/faq.component';
 import { SchemesComponent } from './Home/schemes/schemes.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SchemesComponent } from './Home/schemes/schemes.component';
     SchemesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

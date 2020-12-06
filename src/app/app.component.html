@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark">
+<nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark" *ngIf="choice=='Home'">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,22 +19,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
-                <a class="nav-link" href="#">Schemes</a>
+                <a class="nav-link" [routerLink]="['/home']" (click)="change('Home')">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">STEP</a>
+                <a class="nav-link" (click)="change('STEP')">STEP</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">NGO's</a>
+                <a class="nav-link" (click)="change('NGO')">NGO's</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Legislations & Policy</a>
+                <a class="nav-link" [routerLink]="['/legislationandpolicy']" href="#">Legislations & Policy</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About us</a>
+                <a class="nav-link" [routerLink]="['/aboutus']" href="#">About us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" [routerLink]="['/faq']" href="#">FAQ</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Admin</a>
@@ -42,4 +42,71 @@
         </ul>
     </div>
 </nav>
-<app-schemes></app-schemes>
+<nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark" *ngIf="choice=='STEP'">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+                <a class="nav-link" href="" (click)="change('Home')">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Guidelines</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Training Sectors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">NGO's</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark" *ngIf="choice=='NGO'">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+                <a class="nav-link" (click)="change('Home')">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Criteria</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Organizations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Funding Norms</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
