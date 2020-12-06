@@ -22,22 +22,22 @@
                 <a class="nav-link" [routerLink]="['/home']" (click)="change('Home')">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="change('STEP')">STEP</a>
+                <a class="nav-link" [routerLink]="['/step']" (click)="change('STEP')">STEP</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="change('NGO')">NGO's</a>
+                <a class="nav-link" [routerLink]="['/ngo']" (click)="change('NGO')">NGO's</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/legislationandpolicy']" href="#">Legislations & Policy</a>
+                <a class="nav-link" [routerLink]="['/legislationandpolicy']">Legislations & Policy</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/aboutus']" href="#">About us</a>
+                <a class="nav-link" [routerLink]="['/aboutus']">About us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/faq']" href="#">FAQ</a>
+                <a class="nav-link" [routerLink]="['/faq']">FAQ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Admin</a>
+                <a class="nav-link" [routerLink]="['/admin']">Admin</a>
             </li>
         </ul>
     </div>
@@ -51,28 +51,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
-                <a class="nav-link" href="" (click)="change('Home')">Home</a>
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">About Us</a>
+                <a class="nav-link" [routerLink]="['/step/aboutusstep']">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Guidelines</a>
+                <a class="nav-link" [routerLink]="['/step/guidelines']">Guidelines</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Training Sectors</a>
+                <a class="nav-link" [routerLink]="['/step/trainingsectors']">Training Sectors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">NGO's</a>
+                <a class="nav-link" [routerLink]="['/step/ngoStep']">NGO's</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Registration</a>
+                <a class="nav-link" [routerLink]="['/step/registrationStep']">Registration</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Status</a>
+                <a class="nav-link" [routerLink]="['/step/statusStep']">Status</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" [routerLink]="['/step/faqStep']">FAQ</a>
             </li>
         </ul>
     </div>
@@ -86,25 +86,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav nav-fill w-100">
             <li class="nav-item">
-                <a class="nav-link" (click)="change('Home')">Home</a>
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Criteria</a>
+                <a class="nav-link" [routerLink]="['/ngo/criteria']">Criteria</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Organizations</a>
+                <a class="nav-link" [routerLink]="['/ngo/organizations']">Organizations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Funding Norms</a>
+                <a class="nav-link" [routerLink]="['/ngo/fundingnorms']">Funding Norms</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
+                <a class="nav-link" [routerLink]="['/ngo/registrationNGO']">Register</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Status</a>
+                <a class="nav-link" [routerLink]="['/ngo/statusNGO']">Status</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" [routerLink]="['/ngo/faqNGO']">FAQ</a>
             </li>
         </ul>
     </div>
