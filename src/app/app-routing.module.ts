@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
-import { AdminComponent } from './Admin/admin/admin.component';
+import { AboutusAdminComponent } from './Admin/aboutus-admin/aboutus-admin.component';
+import { AdminComponent } from './Home/admin/admin.component';
+import { NgoAdminComponent } from './Admin/ngo-admin/ngo-admin.component';
+import { TraineesAdminComponent } from './Admin/trainees-admin/trainees-admin.component';
 import { AboutUsComponent } from './Home/about-us/about-us.component';
 import { FAQComponent } from './Home/faq/faq.component';
 import { LandPComponent } from './Home/land-p/land-p.component';
@@ -27,10 +30,11 @@ const routes: Routes = [
     { path: "aboutus", component: AboutUsComponent },
     { path: "legislationandpolicy", component: LandPComponent },
     { path: "faq", component: FAQComponent },
-    { path: "step", 
+    { 
+        path: "step", 
         component: StepComponent,
         children : [
-            { path: "", redirectTo: "trainingsectors", pathMatch: "prefix"},
+            { path: "", redirectTo: "aboutusstep", pathMatch: "prefix"},
             { path: "aboutusstep", component: AboutusComponent },
             { path: "guidelines", component: GuidelinesComponent },
             { path: "ngoStep", component: NgoStepComponent },
@@ -53,7 +57,16 @@ const routes: Routes = [
             { path: "faqNGO", component: FaqNGOComponent}
         ]
     },
-    { path: "admin" , component: AdminComponent}
+    {
+        path: "admin",
+        component: AdminComponent,
+        children: [
+            { path: "", redirectTo: "aboutusAdmin", pathMatch: "full"},
+            { path: "aboutusAdmin", component: AboutusAdminComponent},
+            { path: "ngoAdmin", component: NgoAdminComponent},
+            { path: "traineesAdmin", component: TraineesAdminComponent},
+        ]
+    }
 ]; // sets up routes constant where you define your routes
 
 // configures NgModule imports and exports

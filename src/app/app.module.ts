@@ -22,7 +22,10 @@ import { FundingnormsComponent } from './NGO/fundingnorms/fundingnorms.component
 import { RegistrationNGOComponent } from './NGO/registration-ngo/registration-ngo.component';
 import { StatusNGOComponent } from './NGO/status-ngo/status-ngo.component';
 import { FaqNGOComponent } from './NGO/faq-ngo/faq-ngo.component';
-import { AdminComponent } from './Admin/admin/admin.component';
+import { AdminComponent } from './Home/admin/admin.component';
+import { AboutusAdminComponent } from './Admin/aboutus-admin/aboutus-admin.component';
+import { NgoAdminComponent } from './Admin/ngo-admin/ngo-admin.component';
+import { TraineesAdminComponent } from './Admin/trainees-admin/trainees-admin.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { AdminComponent } from './Admin/admin/admin.component';
     RegistrationNGOComponent,
     StatusNGOComponent,
     FaqNGOComponent,
-    AdminComponent
+    AdminComponent,
+    AboutusAdminComponent,
+    NgoAdminComponent,
+    TraineesAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -20,8 +20,10 @@ export class AppComponent {
       this.title = 'Ministry of Women & Child Development';
     }else if(this.choice == "STEP"){
       this.title = "Support to Training & Employment Programme for Women";
-    } else {
+    } else if(this.choice=="NGO"){
       this.title = "Non Governmental Organizations";
+    } else {
+      this.title = "Admin";
     }
   }
 }
