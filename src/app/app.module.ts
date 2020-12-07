@@ -26,6 +26,7 @@ import { AdminComponent } from './Home/admin/admin.component';
 import { AboutusAdminComponent } from './Admin/aboutus-admin/aboutus-admin.component';
 import { NgoAdminComponent } from './Admin/ngo-admin/ngo-admin.component';
 import { TraineesAdminComponent } from './Admin/trainees-admin/trainees-admin.component';
+import { RegistrationComponent } from './Home/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { TraineesAdminComponent } from './Admin/trainees-admin/trainees-admin.co
     AdminComponent,
     AboutusAdminComponent,
     NgoAdminComponent,
-    TraineesAdminComponent
+    TraineesAdminComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

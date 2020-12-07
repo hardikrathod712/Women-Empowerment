@@ -23,10 +23,12 @@ import { NgoStepComponent } from './STEP/ngo-step/ngo-step.component';
 import { RegistrationStepComponent } from './STEP/registration-step/registration-step.component';
 import { StatusStepComponent } from './STEP/status-step/status-step.component';
 import { TrainingsectorsComponent } from './STEP/trainingsectors/trainingsectors.component';
+import { RegistrationComponent } from './Home/registration/registration.component';
 
 const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: "full"},
     { path: "home", component: SchemesComponent },
+    { path: "registration", component: RegistrationComponent},
     { path: "aboutus", component: AboutUsComponent },
     { path: "legislationandpolicy", component: LandPComponent },
     { path: "faq", component: FAQComponent },
