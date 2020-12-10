@@ -1,4 +1,11 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { zip } from 'rxjs';
+import { Address } from 'src/app/models/address.model';
+import { Name } from 'src/app/models/name.model';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/userRegistration.service';
 
 @Component({
   selector: 'app-registration',
@@ -7,9 +14,87 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  userForm: FormGroup;
+
+  firstNameControl: FormControl;
+  middleNameControl: FormControl;
+  lastNameControl: FormControl;
+  emailControl: FormControl;
+  passwordControl: FormControl;
+  contactControl: FormControl;
+  DOBControl: FormControl;
+  address1Control: FormControl;
+  address2Control: FormControl;
+  cityControl: FormControl;
+  stateControl: FormControl;
+  zipControl: FormControl;
+  countryControl: FormControl;
+
+  constructor(formBuilder: FormBuilder,public datePipe:DatePipe, public userService: UserService) {
+    this.firstNameControl = new FormControl("",Validators.compose([Validators.required]));
+    this.middleNameControl = new FormControl("",Validators.compose([Validators.required]));
+    this.lastNameControl = new FormControl("",Validators.compose([Validators.required]));
+    this.emailControl = new FormControl("",Validators.compose([Validators.required]));
+    this.passwordControl = new FormControl("",Validators.compose([Validators.required]));
+    this.contactControl = new FormControl("",Validators.compose([Validators.required]));
+    this.DOBControl = new FormControl("",Validators.compose([Validators.required]));
+    this.address1Control = new FormControl("",Validators.compose([Validators.required]));
+    this.address2Control = new FormControl("",Validators.compose([Validators.required]));
+    this.cityControl = new FormControl("",Validators.compose([Validators.required]));
+    this.stateControl = new FormControl("",Validators.compose([Validators.required]));
+    this.zipControl = new FormControl("",Validators.compose([Validators.required]));
+    this.countryControl = new FormControl("",Validators.compose([Validators.required]));
+
+    this.userForm = formBuilder.group({
+      "firstNameControl": this.firstNameControl,
+      "middleNameControl": this.middleNameControl,
+      "lastNameControl": this.lastNameControl,
+      "emailControl": this.emailControl,
+      "passwordControl":this.passwordControl,
+      "contactControl":this.contactControl,
+      "DOBControl":this.DOBControl,
+      "address1Control":this.address1Control,
+      "address2Control":this.address2Control,
+      "cityControl":this.cityControl,
+      "stateControl":this.stateControl,
+      "zipControl":this.zipControl,
+      "countryControl":this.countryControl
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+  userRegister() {
+
+    let username: Name = new Name(
+      this.firstNameControl.value,
+      this.middleNameControl.value,
+      this.lastNameControl.value
+    );
+
+    let address: Address = new Address(
+      this.address1Control.value,
+      this.address2Control.value,
+      this.cityControl.value,
+      this.stateControl.value,
+      parseInt(this.zipControl.value),
+      this.countryControl.value
+    );
+    let user = new User ( 
+      username,
+      this.emailControl.value,
+      this.passwordControl.value,
+      this.contactControl.value,
+      this.DOBControl.value,
+      address
+    );
+
+    this.userService.userRegister(user).subscribe(
+      ()=>{
+        alert("Inserted SuccessFully");
+      }
+    );
   }
 
 }

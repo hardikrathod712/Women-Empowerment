@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './Home/about-us/about-us.component';
@@ -27,6 +28,9 @@ import { AboutusAdminComponent } from './Admin/aboutus-admin/aboutus-admin.compo
 import { NgoAdminComponent } from './Admin/ngo-admin/ngo-admin.component';
 import { TraineesAdminComponent } from './Admin/trainees-admin/trainees-admin.component';
 import { RegistrationComponent } from './Home/registration/registration.component';
+import { LoginComponent } from './Home/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -54,13 +58,18 @@ import { RegistrationComponent } from './Home/registration/registration.componen
     AboutusAdminComponent,
     NgoAdminComponent,
     TraineesAdminComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
