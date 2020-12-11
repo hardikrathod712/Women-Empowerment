@@ -24,11 +24,18 @@ import { RegistrationStepComponent } from './STEP/registration-step/registration
 import { StatusStepComponent } from './STEP/status-step/status-step.component';
 import { TrainingsectorsComponent } from './STEP/trainingsectors/trainingsectors.component';
 import { RegistrationComponent } from './Home/registration/registration.component';
+import { LoginUserComponent } from './Home/login-user/login-user.component';
+import { AuthGuard } from './guards/auth.guard';
+import { SukanyaComponent } from './Home/sukanya/sukanya.component';
+import { HostelComponent } from './Home/hostel/hostel.component';
 
 const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: "full"},
     { path: "home", component: SchemesComponent },
+    { path: "login", component: LoginUserComponent},
     { path: "registration", component: RegistrationComponent},
+    { path: "sukanya", component: SukanyaComponent, canActivate: [AuthGuard]},
+    { path: "hostel", component: HostelComponent, canActivate: [AuthGuard]},
     { path: "aboutus", component: AboutUsComponent },
     { path: "legislationandpolicy", component: LandPComponent },
     { path: "faq", component: FAQComponent },
@@ -41,7 +48,7 @@ const routes: Routes = [
             { path: "guidelines", component: GuidelinesComponent },
             { path: "ngoStep", component: NgoStepComponent },
             { path: "registrationStep", component: RegistrationStepComponent },
-            { path: "statusStep", component: StatusStepComponent },
+            { path: "statusStep", component: StatusStepComponent,canActivate: [AuthGuard]},
             { path: "faqStep", component: FaqStepComponent },
             { path: "trainingsectors", component: TrainingsectorsComponent }
         ]

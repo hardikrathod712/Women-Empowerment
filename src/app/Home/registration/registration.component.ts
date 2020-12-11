@@ -1,4 +1,5 @@
 import { DatePipe } from '@angular/common';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { zip } from 'rxjs';
@@ -6,6 +7,7 @@ import { Address } from 'src/app/models/address.model';
 import { Name } from 'src/app/models/name.model';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/userRegistration.service';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-registration',
@@ -13,6 +15,8 @@ import { UserService } from 'src/app/services/userRegistration.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  navigateUrl:string="";
 
   userForm: FormGroup;
 
@@ -30,7 +34,8 @@ export class RegistrationComponent implements OnInit {
   zipControl: FormControl;
   countryControl: FormControl;
 
-  constructor(formBuilder: FormBuilder,public datePipe:DatePipe, public userService: UserService) {
+  constructor(formBuilder: FormBuilder,public datePipe:DatePipe, public userService: UserService,public router: Router,
+    public route: ActivatedRoute) {
     this.firstNameControl = new FormControl("",Validators.compose([Validators.required]));
     this.middleNameControl = new FormControl("",Validators.compose([Validators.required]));
     this.lastNameControl = new FormControl("",Validators.compose([Validators.required]));
@@ -63,6 +68,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params=> this.navigateUrl = params['return']);
   }
 
   userRegister() {
@@ -81,7 +87,7 @@ export class RegistrationComponent implements OnInit {
       parseInt(this.zipControl.value),
       this.countryControl.value
     );
-    let user = new User ( 
+    let user = new User (null,
       username,
       this.emailControl.value,
       this.passwordControl.value,
@@ -91,8 +97,13 @@ export class RegistrationComponent implements OnInit {
     );
 
     this.userService.userRegister(user).subscribe(
-      ()=>{
-        alert("Inserted SuccessFully");
+      response => {
+        console.log("Registration Successfull");
+        this.router.navigate(['/login'],{
+          queryParams:{
+            return:this.navigateUrl
+          }
+        });
       }
     );
   }

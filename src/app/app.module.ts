@@ -28,9 +28,11 @@ import { AboutusAdminComponent } from './Admin/aboutus-admin/aboutus-admin.compo
 import { NgoAdminComponent } from './Admin/ngo-admin/ngo-admin.component';
 import { TraineesAdminComponent } from './Admin/trainees-admin/trainees-admin.component';
 import { RegistrationComponent } from './Home/registration/registration.component';
-import { LoginComponent } from './Home/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { LoginUserComponent } from './Home/login-user/login-user.component';
+import { SukanyaComponent } from './Home/sukanya/sukanya.component';
+import { HostelComponent } from './Home/hostel/hostel.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { DatePipe } from '@angular/common';
     NgoAdminComponent,
     TraineesAdminComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginUserComponent,
+    SukanyaComponent,
+    HostelComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Name } from './name.model';
 
 export class User {
     constructor(
+        public userId: number,
         public userName: Name,
         public userEmailId: string,
         public userPassword: string,
