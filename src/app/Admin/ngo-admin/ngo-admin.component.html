@@ -1,1 +1,37 @@
-<p>ngo-admin works!</p>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+</style>
+</head>
+<body>
+    <script>
+     document.getElementById('button1').onclick = function() {
+  this.value = 'Processing...';
+}
+    </script>
+    
+<h2>List of registered Ngos</h2>
+<table style="width:100%">
+  <tr>
+    <th>NGO Id</th>
+    <th>NGO Name</th>
+    <th>NGO City</th>
+    <th>Status</th>       
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Ngo1</td>
+    <td>Mumbai</td>
+    <td><button type="button" id="button1" value="NA" onClick="change()">Not Approved</button></td>
+  </tr>
+  </table>
+  </body>
+  </html>

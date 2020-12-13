@@ -93,7 +93,9 @@ export class RegistrationComponent implements OnInit {
       this.passwordControl.value,
       this.contactControl.value,
       this.DOBControl.value,
-      address
+      address,
+      null,
+      null
     );
 
     this.userService.userRegister(user).subscribe(

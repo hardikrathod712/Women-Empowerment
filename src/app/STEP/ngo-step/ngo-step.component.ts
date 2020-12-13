@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NGOService } from 'src/app/services/ngoService.service';
 
 @Component({
   selector: 'app-ngo-step',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgoStepComponent implements OnInit {
 
-  constructor() { }
+  ngoList: any[];
+
+  constructor(private ngoService:NGOService) { }
 
   ngOnInit(): void {
+    this.ngoService.getApprovedNgo().subscribe(
+      resp => {
+        this.ngoList = resp;
+      }
+    )
   }
 
 }

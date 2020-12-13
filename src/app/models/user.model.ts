@@ -9,6 +9,8 @@ export class User {
         public userPassword: string,
         public userContactNumber: string,
         public userDOB: Date,
-        public userAddress: Address
+        public userAddress: Address,
+        public family: any,
+        public userAadhar: string
     ) {}
 }

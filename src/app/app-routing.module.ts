@@ -28,6 +28,11 @@ import { LoginUserComponent } from './Home/login-user/login-user.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SukanyaComponent } from './Home/sukanya/sukanya.component';
 import { HostelComponent } from './Home/hostel/hostel.component';
+import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
+import { AdminAuthGuard } from './guards/adminAuth.guard';
+import { NgoLoginComponent } from './NGO/ngo-login/ngo-login.component';
+import { NgoAuthGuard } from './guards/ngoAuth.guard';
+import { NgoChoiceComponent } from './STEP/ngo-choice/ngo-choice.component';
 
 const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: "full"},
@@ -47,10 +52,11 @@ const routes: Routes = [
             { path: "aboutusstep", component: AboutusComponent },
             { path: "guidelines", component: GuidelinesComponent },
             { path: "ngoStep", component: NgoStepComponent },
-            { path: "registrationStep", component: RegistrationStepComponent },
+            { path: "registrationStep", component: RegistrationStepComponent, canActivate: [AuthGuard]},
             { path: "statusStep", component: StatusStepComponent,canActivate: [AuthGuard]},
             { path: "faqStep", component: FaqStepComponent },
-            { path: "trainingsectors", component: TrainingsectorsComponent }
+            { path: "trainingsectors", component: TrainingsectorsComponent },
+            { path: "ngoChoice", component: NgoChoiceComponent}
         ]
     },
     {
@@ -62,8 +68,9 @@ const routes: Routes = [
             { path: "organizations", component: OrganizationsComponent},
             { path: "fundingnorms", component: FundingnormsComponent},
             { path: "registrationNGO", component: RegistrationNGOComponent},
-            { path: "statusNGO", component: StatusNGOComponent},
-            { path: "faqNGO", component: FaqNGOComponent}
+            { path: "statusNGO", component: StatusNGOComponent, canActivate: [NgoAuthGuard]},
+            { path: "faqNGO", component: FaqNGOComponent},
+            { path: "loginNgo", component: NgoLoginComponent}
         ]
     },
     {
@@ -72,8 +79,9 @@ const routes: Routes = [
         children: [
             { path: "", redirectTo: "aboutusAdmin", pathMatch: "full"},
             { path: "aboutusAdmin", component: AboutusAdminComponent},
-            { path: "ngoAdmin", component: NgoAdminComponent},
-            { path: "traineesAdmin", component: TraineesAdminComponent},
+            { path: "ngoAdmin", component: NgoAdminComponent, canActivate: [AdminAuthGuard]},
+            { path: "traineesAdmin", component: TraineesAdminComponent, canActivate: [AdminAuthGuard]},
+            { path: "adminLogin", component: AdminLoginComponent}
         ]
     }
 ]; // sets up routes constant where you define your routes

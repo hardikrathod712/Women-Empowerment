@@ -1,0 +1,22 @@
+<div class="card border-dark col-md-10 mx-auto mt-3 mb-3" *ngFor="let ngo of ngoList">
+    <h3 class="card-header bg-white font-weight-bold">{{ngo.ngoName}}</h3>
+    <div class="card-body p-1">
+        <div class="row col-md-12 mx-auto">
+            <p class="font-weight-normal">{{ ngo.ngoDescription }}</p>
+        </div>
+        <div class="row col-md-12 mx-auto">
+            <p class=" mr-5">Contact No.: <span class="font-italic">{{ngo.ngoContactNumber}}</span></p>
+            <p class=" mx-5">Start Date: <span class="font-italic">{{ngo.startDate}}</span></p>
+            <p class=" mx-5">End Date: <span class="font-italic">{{ngo.endDate}}</span></p>
+            <p class=" mx-5">Training Seats: <span class="font-italic">{{ngo.trainingSeats}}</span></p>
+        </div>
+    </div>
+    <div class="card-footer bg-white row col-md-12 mx-auto p-1">
+        <div class="float-left col-md-8">
+            <p class="font-weight-light">{{ngo.ngoAddress.address1}}, {{ngo.ngoAddress.address2}}, {{ngo.ngoAddress.city}}, {{ngo.ngoAddress.state}} - {{ngo.ngoAddress.zipCode}}, {{ngo.ngoAddress.country}}</p>
+        </div>
+        <div class="float-right col-md-4">
+            <a class="btn btn-md btn-success float-right" (click)="updateUserNGO(ngo)">Apply</a>
+        </div>
+    </div>
+</div>

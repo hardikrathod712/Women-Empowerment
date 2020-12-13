@@ -42,12 +42,12 @@ export class LoginUserComponent implements OnInit {
   public userLogin() {
     let userEmailId: string = this.emailControl.value;
     let userPassword: string = this.passwordControl.value;
-    let user = new User(null,null,userEmailId,userPassword,null,null,null);
+    let user = new User(null,null,userEmailId,userPassword,null,null,null,null,null);
     this.userService.userLogin(user).subscribe(
       response => {
         console.log("Login Successfull");
         this.loggedUser = response;
-        this.authService.saveUser(this.loggedUser.userId);
+        this.authService.saveUser(this.loggedUser.userId,this.loggedUser.userName.firstName);
         this.router.navigateByUrl(this.navigateUrl);
       }
     )

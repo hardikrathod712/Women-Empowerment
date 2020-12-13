@@ -12,6 +12,7 @@ export class UserService {
 
     registerApi = "http://localhost:8080/step/userRegister";
     loginApi = "http://localhost:8080/step/userLogin";
+    updateApi = "http://localhost:8080/step/userUpdate";
 
     public userRegister(user) : Observable<User> {
         return this.http.post<User>(this.registerApi,user);
@@ -19,5 +20,9 @@ export class UserService {
 
     public userLogin(user): Observable<any> {
         return this.http.post<User>(this.loginApi,user);
+    }
+
+    public userUpdate(user) : Observable<User> {
+        return this.http.post<User>(this.updateApi,user);
     }
 }

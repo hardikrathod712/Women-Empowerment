@@ -33,6 +33,9 @@ import { DatePipe } from '@angular/common';
 import { LoginUserComponent } from './Home/login-user/login-user.component';
 import { SukanyaComponent } from './Home/sukanya/sukanya.component';
 import { HostelComponent } from './Home/hostel/hostel.component';
+import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
+import { NgoLoginComponent } from './NGO/ngo-login/ngo-login.component';
+import { NgoChoiceComponent } from './STEP/ngo-choice/ngo-choice.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { HostelComponent } from './Home/hostel/hostel.component';
     RegistrationComponent,
     LoginUserComponent,
     SukanyaComponent,
-    HostelComponent
+    HostelComponent,
+    AdminLoginComponent,
+    NgoLoginComponent,
+    NgoChoiceComponent,
   ],
   imports: [
     BrowserModule,
