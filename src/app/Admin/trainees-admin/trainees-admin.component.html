@@ -1,10 +1,6 @@
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<div class="center">
-  <table class="table table-striped">
-    <thead>
+<div class="container col-md-12 mx-auto mt-3">
+  <table class="table table-hover table-sm">
+    <thead class="thead-dark">
       <tr>
         <th>TRAINEE ID</th>
         <th>TRAINEE NAME</th>
@@ -19,22 +15,18 @@
     <tbody>
       <tr *ngFor="let u of UserNgo">
         <td>{{u.primaryKey.user.userId}}</td>
-        <td>{{u.primaryKey.user.userName.firstName}}</td>
+        <td>{{u.primaryKey.user.userName.firstName}} {{u.primaryKey.user.userName.middleName}} {{u.primaryKey.user.userName.lastName}}</td>
         <td>{{u.primaryKey.ngo.ngoId}}</td>
         <td>{{u.primaryKey.ngo.ngoName}}</td>
         <td>{{u.primaryKey.ngo.sector.sectorName}}</td>
         <td> {{u.appliedAt}} </td>
-        <td class="text-center"><button *ngIf="u.status == 0" type="button" class="btn btn-primary"
-            (click)="update(u)">Update</button>
+        <td class="text-center"><button *ngIf="u.status == 0" type="button" class="btn btn-sm btn-success"
+            (click)="update(u)">Approve</button>
           <span *ngIf="u.status == 1"><b><i class="fa fa-check"></i></b></span>
         <td>
-          <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete(u)>Disapprove</button>
+          <button type="button" class="btn btn-sm btn-danger" (click)=delete(u)>Disapprove</button>
         </td>
       </tr>
     </tbody>
   </table>
-  <!-- <ng-template #elseBlock>
-        <h4 align="center"> There are no ngos to display,please add the ngos! </h4>
-    </ng-template>-->
-
 </div>

@@ -50,7 +50,7 @@ export class StatusNGOComponent implements OnInit {
         this.sectorname = "Handlooms";
         break;
       case 106:
-        this.sectorname = "Handcrafts";
+        this.sectorname = "Handicrafts";
         break;
       default:
         this.sectorname = "none";

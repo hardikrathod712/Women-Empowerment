@@ -46,7 +46,6 @@ export class SukanyaComponent implements OnInit {
         });
       },
       error: err => {
-
       }
     })
   }

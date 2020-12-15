@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/userRegistration.service';
 })
 export class RegistrationStepComponent implements OnInit {
 
-  sectorNames: any = ['Agriculture', 'Animal Husbandary', 'Dairying', 'Fisheries', 'Handlooms', 'Handcrafts'];
+  public sectorNames: string[] = ['Agriculture', 'Animal Husbandary', 'Dairying', 'Fisheries', 'Handlooms', 'Handicrafts'];
 
   StepForm: FormGroup;
 
@@ -44,7 +44,7 @@ export class RegistrationStepComponent implements OnInit {
     this.motherOccupationControl = new FormControl("", Validators.compose([Validators.required]));
     this.motherSalaryControl = new FormControl("", Validators.compose([Validators.required]));
     this.aadharControl = new FormControl("", Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(12)]));
-    this.sectorNameControl = new FormControl("Select Sector", Validators.compose([Validators.required]));
+    this.sectorNameControl = new FormControl("", Validators.compose([Validators.required]));
 
     this.StepForm = formBuilder.group({
       "fNameControl": this.fatherNameControl,

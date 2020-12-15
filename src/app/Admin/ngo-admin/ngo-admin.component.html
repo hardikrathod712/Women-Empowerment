@@ -1,21 +1,12 @@
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<div class="center">
-  <table class="table table-striped">
-    <thead>
+<div class="container col-md-12 mx-auto mt-3">
+  <table class="table table-hover table-sm">
+    <thead class="thead-dark">
       <tr>
         <th>NGO ID</th>
         <th>NGO DESCRIPTION</th>
         <th>NGO NAME</th>
         <th>NGO CONTACT NUMBER</th>
-        <th>ADDRESS1</th>
-        <th>ADDRESS2</th>
-        <th>CITY</th>
-        <th>STATE</th>
-        <th>ZIPCODE</th>
-        <th>COUNTRY</th>
+        <th>ADDRESS</th>
         <th>NGO EMAILID</th>
         <th>START DATE</th>
         <th>END DATE</th>
@@ -31,28 +22,19 @@
         <td> {{e.ngoDescription}} </td>
         <td> {{e.ngoName}} </td>
         <td>{{e.ngoContactNumber}}</td>
-        <td> {{e.ngoAddress.address1}} </td>
-        <td>{{e.ngoAddress.address2}}</td>
-        <td>{{e.ngoAddress.city}}</td>
-        <td>{{e.ngoAddress.state}}</td>
-        <td>{{e.ngoAddress.zipCode}}</td>
-        <td>{{e.ngoAddress.country}}</td>
+        <td> {{e.ngoAddress.address1}}, {{e.ngoAddress.address2}}, {{e.ngoAddress.city}}, {{e.ngoAddress.state}} - {{e.ngoAddress.zipCode}}, {{e.ngoAddress.country}}</td>
         <td>{{e.ngoEmailId}}</td>
         <td>{{e.startDate}}</td>
         <td>{{e.endDate}}</td>
         <td>{{e.trainingSeats}}</td>
         <td>{{e.sector.sectorName}}</td>
-        <td class="text-center"><button *ngIf="e.status == 0" type="button" class="btn btn-primary"
-            (click)="update(e)">Update</button>
+        <td class="text-center"><button *ngIf="e.status == 0" type="button" class="btn btn-sm btn-success"
+            (click)="update(e)">Approve</button>
           <span *ngIf="e.status == 1"><b><i class="fa fa-check"></i></b></span>
         <td>
-          <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete(e)>Disapprove</button>
+          <button type="button" class="btn btn-sm btn-block btn-danger" (click)=delete(e)>Disapprove</button>
         </td>
       </tr>
     </tbody>
   </table>
-  <!-- <ng-template #elseBlock>
-      <h4 align="center"> There are no ngos to display,please add the ngos! </h4>
-  </ng-template>-->
-
 </div>
