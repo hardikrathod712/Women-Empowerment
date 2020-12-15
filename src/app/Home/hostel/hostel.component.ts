@@ -40,8 +40,8 @@ export class HostelComponent implements OnInit {
       "jobType": this.jobTypeControl,
       "hostel": this.hostelNameControl,
       "child": this.childControl,
-      "childGender": this.childGenderControl,
-      "childAge": this.childAgeControl,
+      "childGender": [null],
+      "childAge": [null],
       "city": this.cityControl,
       "grossAmount": this.grossAmountControl
     });
@@ -49,6 +49,19 @@ export class HostelComponent implements OnInit {
 
   ngOnInit(): void {
     this.formControlValueChanged();
+    this.accoService.getAccomodationByUserId(this.authService.getId()).subscribe({
+      next: data => {
+        this.router.navigate(['/hostelDetails'], {
+          queryParams: {
+            userHostelId: data.userHostelId
+          }
+        });
+      },
+      error: err => {
+
+      }
+    }
+    );
   }
 
   changeHostelName(e) {
@@ -61,7 +74,7 @@ export class HostelComponent implements OnInit {
 
   formControlValueChanged() {
     const cityControl = this.registerForm.get('grossAmount');
-    this.registerForm.get('cityControl').valueChanges.subscribe(
+    this.registerForm.get('city').valueChanges.subscribe(
       (mode: string) => {
         console.log(mode);
         if (mode === 'cityYes') {
@@ -75,7 +88,7 @@ export class HostelComponent implements OnInit {
 
     const childGenderControl = this.registerForm.get('childGender');
     const childAgeControl = this.registerForm.get('childAge');
-    this.registerForm.get('childControl').valueChanges.subscribe(
+    this.registerForm.get('child').valueChanges.subscribe(
       (mode: string) => {
         console.log(mode);
         if (mode === 'childYes') {
@@ -87,7 +100,7 @@ export class HostelComponent implements OnInit {
         childGenderControl.updateValueAndValidity();
       });
 
-    this.registerForm.get('childGenderControl').valueChanges.subscribe(
+    this.registerForm.get('childGender').valueChanges.subscribe(
       (mode: string) => {
         console.log(mode);
         if (mode === 'Daughter') {

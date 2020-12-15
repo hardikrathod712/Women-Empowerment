@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AccomodationUser } from 'src/app/models/accomodationUser.model';
+import { User } from 'src/app/models/user.model';
 import { AccomodationService } from 'src/app/services/hostelservice.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class HostelDetailsComponent implements OnInit {
   message: string;
   acc: any;
   userHostelId: any;
+  user: User;
 
   constructor(private accoService: AccomodationService, private route: ActivatedRoute) { }
 
@@ -26,6 +28,7 @@ export class HostelDetailsComponent implements OnInit {
   }
   handleSuccessfulResponse(response) {
     this.acc = response;
+    this.user = this.acc.user;
   }
 
 }
