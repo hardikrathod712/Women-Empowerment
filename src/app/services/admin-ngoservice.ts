@@ -27,9 +27,9 @@ export class AdminNgoService {
     const headers = new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
     return this.httpService.put("http://localhost:4321/ngo/updateNgo", updateNgo, { headers, responseType: 'text' });
   }
-  delete(ngoId: number) {
+  delete(ngoId) {
     console.log("ins service delete");
     const headers = new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.delete("http://localhost:4321/ngo/ngo/" + ngoId, { headers, responseType: 'text' });
+    return this.httpService.delete("http://localhost:4321/ngo/deleteNgo/" + ngoId, { headers, responseType: 'text' });
   }
 }

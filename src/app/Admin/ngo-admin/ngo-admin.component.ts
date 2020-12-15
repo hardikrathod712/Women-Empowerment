@@ -30,7 +30,7 @@ export class NgoAdminComponent implements OnInit {
   }
   delete(deleteNgo: Ngo): any {
     this.myservice.delete(deleteNgo.ngoId).subscribe(data => {
-      this.message = data
+      console.log(data);
     });
   }
 

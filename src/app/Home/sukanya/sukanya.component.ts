@@ -76,6 +76,11 @@ export class SukanyaComponent implements OnInit {
         data => {
           this.receivedData = data;
           console.log(this.receivedData);
+          this.router.navigate(['/sukanyaDetails'], {
+            queryParams: {
+              userId: this.receivedData.user.userId
+            }
+          });
         });
       // this.registerForm.reset();
     }

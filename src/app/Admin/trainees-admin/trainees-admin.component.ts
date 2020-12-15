@@ -29,8 +29,8 @@ export class TraineesAdminComponent implements OnInit {
     this.myservice1.onUpdate(updateTrainee).subscribe(response => { console.log("success") });
   }
   delete(deleteTrainee: UserNgo): any {
-    this.myservice1.delete(deleteTrainee.primaryKey.userId).subscribe(data => {
-      this.message = data
+    this.myservice1.delete(deleteTrainee.primaryKey.user.userId).subscribe(data => {
+      console.log(data);
     });
   }
 
