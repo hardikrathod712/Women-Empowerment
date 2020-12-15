@@ -1,6 +1,7 @@
 <div class="card mt-4 p-5 col-md-6 mx-auto">
     <h3 class="mx-auto">Login</h3>
     <hr>
+    <h6 class="mx-auto text-danger" *ngIf="error">Bad Credential</h6>
     <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>

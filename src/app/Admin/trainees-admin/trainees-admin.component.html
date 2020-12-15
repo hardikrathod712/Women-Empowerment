@@ -1,32 +1,40 @@
-<html>
 <head>
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;    
-}
-</style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
-    
-<h2>List of registered Ngos</h2>
-<table style="width:100%">
-  <tr>
-    <th>Trainee Id</th>
-    <th>Trainee Name</th>
-    <th>Trainee City</th>
-    <th>Course</th>       
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>ABC</td>
-    <td>Mumbai</td>
-    <td>Agriculture</td>
-  </tr>
+<div class="center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>TRAINEE ID</th>
+        <th>TRAINEE NAME</th>
+        <th>NGO ID</th>
+        <th>NGO NAME</th>
+        <th>SECTOR NAME</th>
+        <th>APPLIED_DATE</th>
+        <th>STATUS</th>
+        <th>DISAPPROVE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of UserNgo">
+        <td>{{u.primaryKey.user.userId}}</td>
+        <td>{{u.primaryKey.user.userName.firstName}}</td>
+        <td>{{u.primaryKey.ngo.ngoId}}</td>
+        <td>{{u.primaryKey.ngo.ngoName}}</td>
+        <td>{{u.primaryKey.ngo.sector.sectorName}}</td>
+        <td> {{u.appliedAt}} </td>
+        <td class="text-center"><button *ngIf="u.status == 0" type="button" class="btn btn-primary"
+            (click)="update(u)">Update</button>
+          <span *ngIf="u.status == 1"><b><i class="fa fa-check"></i></b></span>
+        <td>
+          <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete(u)>Disapprove</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
-  </body>
-  </html>
+  <!-- <ng-template #elseBlock>
+        <h4 align="center"> There are no ngos to display,please add the ngos! </h4>
+    </ng-template>-->
+
+</div>

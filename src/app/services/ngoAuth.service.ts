@@ -8,9 +8,10 @@ import { AuthService } from "./auth.service";
 export class NgoAuthService {
     constructor() { }
 
-    public save(ngoId){
+    public save(ngoId,ngoName){
         localStorage.setItem("isNgoLoggedIn","true");
         localStorage.setItem("tokenNgo",ngoId);
+        localStorage.setItem("tokenNgoName",ngoName);
         localStorage.setItem("isAdminLoggedIn", "false");
         localStorage.removeItem("tokenAdmin");
         localStorage.setItem("isLoggedIn", "false");
@@ -31,6 +32,10 @@ export class NgoAuthService {
     }
 
     public getName(){
+        return localStorage.getItem("tokenNgoName");
+    }
+
+    public getId() {
         return localStorage.getItem("tokenNgo");
     }
 }

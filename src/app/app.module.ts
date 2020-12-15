@@ -36,6 +36,8 @@ import { HostelComponent } from './Home/hostel/hostel.component';
 import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 import { NgoLoginComponent } from './NGO/ngo-login/ngo-login.component';
 import { NgoChoiceComponent } from './STEP/ngo-choice/ngo-choice.component';
+import { HostelDetailsComponent } from './Home/hostel-details/hostel-details.component';
+import { SukanyaDetailsComponent } from './Home/sukanya-details/sukanya-details.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { NgoChoiceComponent } from './STEP/ngo-choice/ngo-choice.component';
     AdminLoginComponent,
     NgoLoginComponent,
     NgoChoiceComponent,
+    HostelDetailsComponent,
+    SukanyaDetailsComponent,
   ],
   imports: [
     BrowserModule,

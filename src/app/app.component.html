@@ -74,7 +74,7 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/step/ngoStep']">NGO's</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="!registeredUser">
                 <a class="nav-link" [routerLink]="['/step/registrationStep']">Registration</a>
             </li>
             <li class="nav-item">
@@ -115,7 +115,7 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/ngo/fundingnorms']">Funding Norms</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="!registeredNGO">
                 <a class="nav-link" [routerLink]="['/ngo/registrationNGO']">Register</a>
             </li>
             <li class="nav-item">

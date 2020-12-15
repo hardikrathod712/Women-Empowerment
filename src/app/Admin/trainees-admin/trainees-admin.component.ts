@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserNgo } from 'src/app/models/userNgo.model';
+import { TraineesAdminService } from 'src/app/services/trainees-adminservice';
 
 @Component({
   selector: 'app-trainees-admin',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TraineesAdminComponent implements OnInit {
 
-  constructor() { }
+  message: string;
+  UserNgo: UserNgo[];
+  constructor(private myservice1: TraineesAdminService, private router: Router) {
 
-  ngOnInit(): void {
+  }
+
+  ngOnInit(): any {
+    this.myservice1.getAllAppliedUser().subscribe(
+      response => this.handleSuccessfulResponse(response),
+    );
+  }
+  handleSuccessfulResponse(response) {
+    this.UserNgo = response;
+  }
+  update(updateTrainee: UserNgo) {
+    updateTrainee.status = true;
+    this.myservice1.onUpdate(updateTrainee).subscribe(response => { console.log("success") });
+  }
+  delete(deleteTrainee: UserNgo): any {
+    this.myservice1.delete(deleteTrainee.primaryKey.userId).subscribe(data => {
+      this.message = data
+    });
   }
 
 }

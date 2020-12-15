@@ -42,6 +42,7 @@ export class NgoChoiceComponent implements OnInit {
       response => {
         console.log(response.primaryKey.user.userId);
         console.log(response.primaryKey.ngo.ngoId);
+        this.service.setRegister();
         this.router.navigate(['/step/statusStep']);
       }
     )

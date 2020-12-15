@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Ngo } from 'src/app/models/ngo.model';
+import { AdminNgoService } from 'src/app/services/admin-ngoservice';
 
 @Component({
   selector: 'app-ngo-admin',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgoAdminComponent implements OnInit {
 
-  constructor() { }
+  message: string;
+  Ngo: Ngo[];
+  constructor(private myservice: AdminNgoService, private router: Router) {
 
-  ngOnInit(): void {
+  }
+  ngOnInit(): any {
+    debugger
+    this.myservice.getAllNgo().subscribe(
+      response => this.handleSuccessfulResponse(response),
+    );
+  }
+  handleSuccessfulResponse(response) {
+    this.Ngo = response;
+  }
+  update(updateNgo: Ngo) {
+    updateNgo.status = true;
+    this.myservice.onUpdate(updateNgo).subscribe(response => { console.log("success") });
+  }
+  delete(deleteNgo: Ngo): any {
+    this.myservice.delete(deleteNgo.ngoId).subscribe(data => {
+      this.message = data
+    });
   }
 
 }

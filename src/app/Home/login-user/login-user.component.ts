@@ -13,9 +13,11 @@ import { UserService } from 'src/app/services/userRegistration.service';
 
 export class LoginUserComponent implements OnInit {
 
-  navigateUrl:string="";
+  error: boolean = false;
 
-  public loggedUser:User = null;
+  navigateUrl: string = "";
+
+  public loggedUser: User = null;
   loginForm: FormGroup;
   emailControl: FormControl;
   passwordControl: FormControl;
@@ -25,38 +27,42 @@ export class LoginUserComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     public route: ActivatedRoute
-    ) { 
-    this.emailControl = new FormControl("",Validators.compose([Validators.required]));
-    this.passwordControl = new FormControl("",Validators.compose([Validators.required]));
+  ) {
+    this.emailControl = new FormControl("", Validators.compose([Validators.required]));
+    this.passwordControl = new FormControl("", Validators.compose([Validators.required]));
 
     this.loginForm = formBuilder.group({
-      "userEmail":this.emailControl,
-      "userPassword":this.passwordControl
+      "userEmail": this.emailControl,
+      "userPassword": this.passwordControl
     })
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params=> this.navigateUrl = params['return']);
+    this.route.queryParams.subscribe(params => this.navigateUrl = params['return']);
   }
 
   public userLogin() {
     let userEmailId: string = this.emailControl.value;
     let userPassword: string = this.passwordControl.value;
-    let user = new User(null,null,userEmailId,userPassword,null,null,null,null,null);
-    this.userService.userLogin(user).subscribe(
-      response => {
-        console.log("Login Successfull");
-        this.loggedUser = response;
-        this.authService.saveUser(this.loggedUser.userId,this.loggedUser.userName.firstName);
-        this.router.navigateByUrl(this.navigateUrl);
+    let user = new User(null, null, userEmailId, userPassword, null, null, null, null, null);
+    this.userService.userLogin(user).subscribe({
+      next: response => {
+          console.log("Login Successfull");
+          console.log(response);
+          this.loggedUser = response;
+          this.authService.saveUser(this.loggedUser.userId, this.loggedUser.userName.firstName);
+          this.router.navigateByUrl(this.navigateUrl);
+      },
+      error: error => {
+        this.error = error.message;
       }
-    )
+    });
   }
 
-  public register(){
-    this.router.navigate(['/registration'],{
-      queryParams:{
-        return:this.navigateUrl
+  public register() {
+    this.router.navigate(['/registration'], {
+      queryParams: {
+        return: this.navigateUrl
       }
     })
   }

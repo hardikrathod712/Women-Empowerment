@@ -39,4 +39,11 @@ export class AuthService {
   public getId() {
     return localStorage.getItem("tokenUserId");
   }
+
+  public setRegister() {
+    localStorage.setItem("registered","true");
+  }
+  public getRegister() {
+    return localStorage.getItem("registered");
+  }
 }

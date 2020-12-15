@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col"><label>Password</label></div>
                 <div class="col">
-                    <input type="text" name="password" [formControl]="passwordControl" />
+                    <input type="password" name="password" [formControl]="passwordControl" />
                     <span *ngIf="passwordControl.hasError('required') && passwordControl.dirty"
                         class="text-danger">Password required!!!</span>
                     <span *ngIf="passwordControl.hasError('minlength') && passwordControl.dirty"
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col"><label>Email</label></div>
                 <div class="col">
-                    <input type="email" name="email" [formControl]="emailControl" />
+                    <input type="email" name="email" [formControl]="emailControl" ngModel email />
                     <span *ngIf="emailControl.hasError('required') && emailControl.dirty" class="text-danger">Email
                         required!!!</span>
                 </div>
@@ -149,9 +149,12 @@
                 <div class="col"><label>Choose your Training Sector</label></div>
                 <div class="col">
                     <select class="custom-select" (change)="changeSectorName($event)" [formControl]="sectornameControl">
-                        <option value="" disabled></option>
-                        <option *ngFor="let sector of sectorNames" [ngValue]="sector">{{sector}}</option>
-
+                        <option value="101">Agriculture</option>
+                        <option value="102">Animal Husbandary</option>
+                        <option value="103">Dairying</option>
+                        <option value="104">Fisheries</option>
+                        <option value="105">Handlooms</option>
+                        <option value="106">Handicrafts</option>
                     </select>
                     <span *ngIf="sectornameControl.hasError('required') && sectornameControl.dirty"
                         class="text-danger">Sector name required!!!</span>
@@ -163,7 +166,7 @@
                 <div class="col">
                     <input type="text" name="sectorDescription" [formControl]="sectorDescriptionControl" />
                     <span *ngIf="sectorDescriptionControl.hasError('required') && sectorDescriptionControl.dirty"
-                        class="text-danger">Country name required!!!</span>
+                        class="text-danger">Course description required!!!</span>
                 </div>
             </div>
 
@@ -185,70 +188,6 @@
                 </div>
             </div>
             <br />
-            <div>
-                <h4>Training sector Location</h4>
-                <hr />
-            </div>
-            <div class="row">
-                <div class="col"><label>Address1</label></div>
-                <div class="col">
-                    <input type="text" name="sectoraddress1" [formControl]="sectorAddress1Control" />
-                    <span *ngIf="sectorAddress1Control.hasError('required') && sectorAddress1Control.dirty"
-                        class="text-danger">Address1 required!!!</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col"><label>Address2</label></div>
-                <div class="col">
-                    <input type="text" name="sectoraddress2" [formControl]="sectorAddress2Control" />
-                    <span *ngIf="sectorAddress2Control.hasError('required') && sectorAddress2Control.dirty"
-                        class="text-danger">Address2 required!!!</span>
-                    <!--
-                    <span *ngIf="!nameControl.valid && nameControl.dirty" class="text-danger">Product name required!!!</span>
-                    -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col"><label>City</label></div>
-                <div class="col">
-                    <input type="text" name="sectorcity" [formControl]="sectorCityControl" />
-                    <span *ngIf="sectorCityControl.hasError('required') && sectorCityControl.dirty"
-                        class="text-danger">City name required!!!</span>
-                    <!--
-                    <span *ngIf="!nameControl.valid && nameControl.dirty" class="text-danger">Product name required!!!</span>
-                    -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col"><label>zipcode</label></div>
-                <div class="col">
-                    <input type="text" name="sectorzipcode" [formControl]="sectorZipcodeControl" />
-                    <span *ngIf="sectorZipcodeControl.hasError('required') && sectorZipcodeControl.dirty"
-                        class="text-danger">zipcode required!!!</span>
-                    <span *ngIf="sectorZipcodeControl.hasError('minlength') && sectorZipcodeControl.dirty"
-                        class="text-danger">zipcode must be of 6 digits!!!</span>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col"><label>State</label></div>
-                <div class="col">
-                    <input type="text" name="sectorstate" [formControl]="sectorStateControl" />
-                    <span *ngIf="sectorStateControl.hasError('required') && sectorStateControl.dirty"
-                        class="text-danger">State name required!!!</span>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col"><label>Country</label></div>
-                <div class="col">
-                    <input type="text" name="sectorcountry" [formControl]="sectorCountryControl" />
-                    <span *ngIf="sectorCountryControl.hasError('required') && sectorCountryControl.dirty"
-                        class="text-danger">Country name required!!!</span>
-                </div>
-            </div>
-            <hr />
 
             <div class="row">
                 <div class="col"><label>Number Of Seats</label></div>
@@ -261,7 +200,7 @@
             <br />
             <div class="row">
                 <div class="col">
-                    <input type="submit" value="Register" [disabled]="!registrationForm.valid" style="background-color: #4CAF50;
+                    <input type="submit" value="Register" style="background-color: #4CAF50;
                     border: none;
                     color: white;
                     margin: 4px 2px;
@@ -272,7 +211,8 @@
             </div>
             <br>
         </form>
-        <!--  padding: 16px 32px; margin: 4px 2px;
-                    -->
+
+
+
     </div>
 </div>

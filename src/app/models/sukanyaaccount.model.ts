@@ -1,6 +1,12 @@
+import { User } from "./user.model";
+
 export class SukanyaAccount {
-    accounId: number;
-    accountNumber: string;
-    accountType: string;
-    balance: number;
+    constructor(
+    public accountId: number,
+    public accountNumber: string,
+    public accountType: string,
+    public balance: number,
+    public registrationDate: Date,
+    public user: any
+    ){}
   }

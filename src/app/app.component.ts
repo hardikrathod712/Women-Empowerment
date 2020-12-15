@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminAuthService } from './services/adminAuth.service';
 import { AuthService } from './services/auth.service';
 import { NgoAuthService } from './services/ngoAuth.service';
+import { UserNgoService } from './services/userNgo.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,25 @@ export class AppComponent {
 
   userName:string = "";
   loggedIn: boolean = false;
-  constructor(public ngoAuthService:NgoAuthService,public adminAuthService: AdminAuthService,public authService: AuthService){
+  registeredNGO: boolean = false;
+  registeredUser: boolean = false;
+
+  constructor(public ngoAuthService:NgoAuthService,public adminAuthService: AdminAuthService,public authService: AuthService,
+    private userNgoService:UserNgoService){
     if(authService.isLoggedIn()){
       this.loggedIn = true;
       this.userName = authService.getName();
+      userNgoService.getUserNgo(authService.getId()).subscribe(
+        response => {
+          if(response!=null){
+            this.registeredUser = true;
+          }
+        }
+      )
     }else if(ngoAuthService.isLoggedIn()){
       this.loggedIn = true;
       this.userName = ngoAuthService.getName();
+      this.registeredNGO = true;
     }else if(adminAuthService.isLoggedIn()){
       this.loggedIn = true;
       this.userName = adminAuthService.getName();

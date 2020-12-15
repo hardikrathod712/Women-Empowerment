@@ -18,19 +18,22 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="dob">Date of Birth</label>
-                <input type="date" class="form-control" id="dob" [formControl]="fatherDOBControl">
+                <input type="date" class="form-control" id="dob" [formControl]="fatherDOBControl"
+                [ngClass]="{ 'is-invalid': f.fatherDOBControl.dirty && f.fatherDOBControl.errors }">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="occupation">Occupation</label>
                 <input type="text" class="form-control" id="occupation" placeholder="Occupation"
-                    [formControl]="fatherOccupationControl">
+                    [formControl]="fatherOccupationControl" 
+                    [ngClass]="{ 'is-invalid': f.fatherOccupationControl.dirty && f.fatherOccupationControl.errors }">
             </div>
             <div class="form-group col-md-6">
                 <label for="occupation">Salary</label>
                 <input type="number" class="form-control" id="salary" placeholder="Salary"
-                    [formControl]="fatherSalaryControl">
+                    [formControl]="fatherSalaryControl"
+                    [ngClass]="{ 'is-invalid': f.fatherSalaryControl.dirty && f.fatherSalaryControl.errors }">
             </div>
         </div>
         <h4 class="mt-3">Mother's Details</h4>

@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/userRegistration.service';
 })
 export class RegistrationStepComponent implements OnInit {
 
-  sectorNames: any = ['Agriculture', 'Animal Husbandary', 'Dairying', 'Fisheries', 'Handlooms', 'Handicrafts'];
+  sectorNames: any = ['Agriculture', 'Animal Husbandary', 'Dairying', 'Fisheries', 'Handlooms', 'Handcrafts'];
 
   StepForm: FormGroup;
 
@@ -64,6 +64,8 @@ export class RegistrationStepComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  get f() { return this.StepForm.controls; }
 
   changeSectorName(event) {
     this.sectorNameControl.setValue(event.target.value, {

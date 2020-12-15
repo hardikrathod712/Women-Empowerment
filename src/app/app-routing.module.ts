@@ -33,6 +33,8 @@ import { AdminAuthGuard } from './guards/adminAuth.guard';
 import { NgoLoginComponent } from './NGO/ngo-login/ngo-login.component';
 import { NgoAuthGuard } from './guards/ngoAuth.guard';
 import { NgoChoiceComponent } from './STEP/ngo-choice/ngo-choice.component';
+import { HostelDetailsComponent } from './Home/hostel-details/hostel-details.component';
+import { SukanyaDetailsComponent } from './Home/sukanya-details/sukanya-details.component';
 
 const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: "full"},
@@ -40,7 +42,9 @@ const routes: Routes = [
     { path: "login", component: LoginUserComponent},
     { path: "registration", component: RegistrationComponent},
     { path: "sukanya", component: SukanyaComponent, canActivate: [AuthGuard]},
+    { path: "sukanyaDetails", component: SukanyaDetailsComponent},
     { path: "hostel", component: HostelComponent, canActivate: [AuthGuard]},
+    { path: "hostelDetails", component: HostelDetailsComponent},
     { path: "aboutus", component: AboutUsComponent },
     { path: "legislationandpolicy", component: LandPComponent },
     { path: "faq", component: FAQComponent },

@@ -1,6 +1,5 @@
 body {
     background-color: #f9f9fa
-    
 }
 
 .padding {
@@ -9,7 +8,6 @@ body {
 
 .user-card-full {
     overflow: hidden
-    
 }
 
 .card {
@@ -17,8 +15,7 @@ body {
     -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
     box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
     border: none;
-    margin-bottom: 30px;
-    width:980px; 
+    margin-bottom: 30px
 }
 
 .m-r-0 {
@@ -44,7 +41,6 @@ body {
 
 .card-block {
     padding: 1.25rem
-    
 }
 
 .m-b-25 {
@@ -56,7 +52,7 @@ body {
 }
 
 h6 {
-    font-size: 20px
+    font-size: 14px
 }
 
 .card .card-block p {

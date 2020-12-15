@@ -110,7 +110,8 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <p class="m-b-10 f-w-600">Status</p>
-                                <h6 class="text-muted f-w-400">{{userData.status}}</h6>
+                                <h6 class="text-muted f-w-400" *ngIf="userData.status==true">Approved</h6>
+                                <h6 class="text-muted f-w-400" *ngIf="userData.status==false">Not Approved</h6>
                             </div>
                             <div class="col-sm-6">
                                 <p class="m-b-10 f-w-600">Applied Date</p>

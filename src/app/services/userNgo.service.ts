@@ -4,20 +4,20 @@ import { Observable } from "rxjs";
 import { UserNgo } from "../models/userNgo.model";
 
 @Injectable({
-    providedIn:"root"
+    providedIn: "root"
 })
 export class UserNgoService {
 
-    registerApi = "http://localhost:8080/userNgo/userNgoRegister";
-    getApi = "http://localhost:8080/userNgo/trainee/";
+    registerApi = "http://localhost:4321/userngo/registerUser";
+    getApi = "http://localhost:4321/userngo/trainee/";
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     userNgoRegister(userNgo): Observable<any> {
-        return this.http.post<UserNgo>(this.registerApi,userNgo);
+        return this.http.post<UserNgo>(this.registerApi, userNgo);
     }
 
     getUserNgo(userId): Observable<UserNgo> {
-        return this.http.get<UserNgo>(this.getApi+userId);
+        return this.http.get<UserNgo>(this.getApi + userId);
     }
 }
